@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Ansellma",
+    "email": "ansellmacantik@gmail.com",
+    "phoneNumber": "081219101",
+    "birth-date": "16/10/2003",
+    "jobs": ["Content Creator", "Social Media Specialist"],
+    "interests": ["Books", "Classic Cars", "Music"],
+    "followers": 200000,
+    "followings": 300,
+    "bookmark-reviews": [1, 2, 3, 4]
+  }
+]

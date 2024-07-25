@@ -1,0 +1,41 @@
+<hr class="border border-primary border-1 opacity-75 mt-4" />
+<% const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %> <% const d = new Date()%> <% const day = weekday[d.getDay()]; %>
+<p class="bg-info p-3 mb-2 rounded w-10 position-fixed end-0 bottom-0 text-end me-3 z-3"><%= day %>, <span id="clock"></span></p>
+<h1 class="ms-3">Hello, <%= name %></h1>
+<p class="ms-3">Welcome to Review Garden!</p>
+<p class="ms-3">Here you can share your review about movie, novel, game, and etc! Also you are pleased to read others review and sharing your thoughts about their review!</p>
+<hr class="border border-primary border-1 opacity-75" />
+<% if (reviews.length !== 0) { %>
+<h4 class="ms-3">Best review of the week</h4>
+<div class="container">
+  <div class="row g-2">
+    <% reviews.forEach(review => { %>
+    <div class="col-sm-6 col-md-4 d-flex">
+      <div class="card w-100 d-flex flex-column">
+        <div class="card-header">Review</div>
+        <div class="card-body flex-fill d-flex flex-column">
+          <blockquote class="blockquote mb-0 flex-grow-1">
+            <p><%= review.review %></p>
+            <footer class="blockquote-footer"><%= review.name %> in <cite title="Source Title"><%= `https://${review.name}.com` %></cite></footer>
+          </blockquote>
+          <a href="/review/<%=review.id%>" class="btn btn-primary rounded-pill mt-2">Detail <i class="bi bi-info-circle"></i></a>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+<% } %>
+<script>
+  function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
+    const formattedTime = `${hours}:${minutes}:${seconds}`;
+    document.getElementById("clock").textContent = formattedTime;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>

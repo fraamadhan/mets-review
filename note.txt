@@ -1,0 +1,22 @@
+You can do manual layout, sir. 
+sc in js:
+app.use("/", (req, res) => {
+  res.render("v_template", {
+    title: "MyWeb",
+    page: "Home",
+    vContent: "content/home", //this is the view that is created as a variable
+  });
+});
+
+in the html:
+  <body>
+    <!-- navbar -->
+    <%- include('layouts/navbar') %>  
+    
+    <!--Content -->
+    <%- include(`${vContent}`) %>  
+    
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- footer -->
+    <%- include('layouts/footer') %>  
+  </body>

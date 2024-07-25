@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Ansellma",
+    "email": "ansellmacantik@gmail.com",
+    "phoneNumber": "081219101",
+    "review": "Good movie because I love character development of Frodo in the movie. Overall I love it so much!",
+    "likes": 100,
+    "title": "The Lord of The Rings: The Fellowship of the Ring",
+    "category": "movie",
+    "genres": ["Adventure", "Fantasy"]
+  },
+  {
+    "id": 2,
+    "name": "Inshira Vieta Amara",
+    "email": "",
+    "phoneNumber": "08976107721",
+    "review": "Good movie tbh yeyeye",
+    "likes": 300,
+    "title": "The Lord of The Rings: The Fellowship of the Ring",
+    "category": "movie",
+    "genres": ["Adventure", "Fantasy"]
+  },
+  {
+    "id": 3,
+    "name": "John Doe",
+    "email": "johndoe@gmail.com",
+    "phoneNumber": "0897171717",
+    "review": "The Lord of The Rings is a good movie with beautiful in it!",
+    "likes": 200,
+    "title": "The Lord of The Rings: The Fellowship of the Ring",
+    "category": "movie",
+    "genres": ["Adventure", "Fantasy"]
+  },
+  {
+    "id": 4,
+    "name": "Inshira",
+    "email": "inshira@example.com",
+    "phoneNumber": "08976107721",
+    "review": "Amazing storyline and visuals!",
+    "likes": 500,
+    "title": "The Lord of The Rings: The Fellowship of the Ring",
+    "category": "movie",
+    "genres": ["Adventure", "Fantasy"]
+  },
+  {
+    "id": 5,
+    "name": "Vieta",
+    "email": "vieta@example.com",
+    "phoneNumber": "08976107722",
+    "review": "The movie was quite entertaining, but the pacing could be better.",
+    "likes": 600,
+    "title": "The Lord of The Rings: The Fellowship of the Ring",
+    "category": "movie",
+    "genres": ["Adventure", "Fantasy"]
+  },
+  {
+    "id": 6,
+    "name": "Amara",
+    "email": "amara@example.com",
+    "phoneNumber": "08976107723",
+    "review": "A fantastic experience from start to finish!",
+    "likes": 1200,
+    "title": "The Lord of The Rings: The Fellowship of the Ring",
+    "category": "movie",
+    "genres": ["Adventure", "Fantasy"]
+  }
+]
