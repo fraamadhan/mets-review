@@ -8,7 +8,13 @@
     "likes": 100,
     "title": "The Lord of The Rings: The Fellowship of the Ring",
     "category": "movie",
-    "genres": ["Adventure", "Fantasy"]
+    "comments": 200,
+    "genres": ["Adventure", "Fantasy"],
+    "images": [
+      "https://cdn.vox-cdn.com/thumbor/Re1vyTssP074VzESeYWM-ZqjJi8=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/23112901/lord_of_the_rings_20th_anniversrary.jpg",
+      "https://play-lh.googleusercontent.com/Tqa5TfzPG_-SCtIv_wXBbSK9NPuug1GLs7zy5WIusWDZZDT7IWnqDGukR_MtpWrdiBDW5F5Ws-I53cyWKAg",
+      "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/10/lord-of-the-rings-trilogy-header.jpg"
+    ]
   },
   {
     "id": 2,
@@ -17,9 +23,11 @@
     "phoneNumber": "08976107721",
     "review": "Good movie tbh yeyeye",
     "likes": 300,
-    "title": "The Lord of The Rings: The Fellowship of the Ring",
+    "title": "Percy Jackson",
     "category": "movie",
-    "genres": ["Adventure", "Fantasy"]
+    "comments": 200,
+    "genres": ["Adventure", "Fantasy"],
+    "images": ["https://asset-2.tstatic.net/wow/foto/bank/images/film-percy-jackson-the-olympians-the-lightning-thief-akan-ditayangkan-di.jpg"]
   },
   {
     "id": 3,
@@ -30,7 +38,13 @@
     "likes": 200,
     "title": "The Lord of The Rings: The Fellowship of the Ring",
     "category": "movie",
-    "genres": ["Adventure", "Fantasy"]
+    "comments": 200,
+    "genres": ["Adventure", "Fantasy"],
+    "images": [
+      "https://cdn.vox-cdn.com/thumbor/Re1vyTssP074VzESeYWM-ZqjJi8=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/23112901/lord_of_the_rings_20th_anniversrary.jpg",
+      "https://play-lh.googleusercontent.com/Tqa5TfzPG_-SCtIv_wXBbSK9NPuug1GLs7zy5WIusWDZZDT7IWnqDGukR_MtpWrdiBDW5F5Ws-I53cyWKAg",
+      "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/10/lord-of-the-rings-trilogy-header.jpg"
+    ]
   },
   {
     "id": 4,
@@ -39,9 +53,11 @@
     "phoneNumber": "08976107721",
     "review": "Amazing storyline and visuals!",
     "likes": 500,
-    "title": "The Lord of The Rings: The Fellowship of the Ring",
+    "title": "The Great Snowman",
     "category": "movie",
-    "genres": ["Adventure", "Fantasy"]
+    "comments": 200,
+    "genres": ["Adventure", "Fantasy"],
+    "images": ["https://i.ytimg.com/vi/HBJBITkAjC4/maxresdefault.jpg", "https://m.media-amazon.com/images/M/MV5BMjI1NDYzNzY2Ml5BMl5BanBnXkFtZTgwODQwODczNTM@._V1_.jpg"]
   },
   {
     "id": 5,
@@ -50,9 +66,15 @@
     "phoneNumber": "08976107722",
     "review": "The movie was quite entertaining, but the pacing could be better.",
     "likes": 600,
-    "title": "The Lord of The Rings: The Fellowship of the Ring",
+    "title": "Harry Potter and The Prisoner of Azkaban",
     "category": "movie",
-    "genres": ["Adventure", "Fantasy"]
+    "comments": 200,
+    "genres": ["Adventure", "Fantasy", "Magical", "Mystery"],
+    "images": [
+      "https://www.pluggedin.com/wp-content/uploads/2019/12/harry-potter-and-the-prisoner-of-azkaban-1200x787.jpg",
+      "https://i5.walmartimages.com/seo/Harry-Potter-the-Prisoner-of-Azkaban-DVD_8d7cb6fa-cec5-457f-a8cb-f300e1ae229a.2b10ceaf2a6f357650af95c875d0c483.jpeg",
+      "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/01/feature-image-harry-potter-and-the-prisoner-of-azkaban-explained-1.jpg"
+    ]
   },
   {
     "id": 6,
@@ -63,6 +85,12 @@
     "likes": 1200,
     "title": "The Lord of The Rings: The Fellowship of the Ring",
     "category": "movie",
-    "genres": ["Adventure", "Fantasy"]
+    "comments": 200,
+    "genres": ["Adventure", "Fantasy"],
+    "images": [
+      "https://cdn.vox-cdn.com/thumbor/Re1vyTssP074VzESeYWM-ZqjJi8=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/23112901/lord_of_the_rings_20th_anniversrary.jpg",
+      "https://play-lh.googleusercontent.com/Tqa5TfzPG_-SCtIv_wXBbSK9NPuug1GLs7zy5WIusWDZZDT7IWnqDGukR_MtpWrdiBDW5F5Ws-I53cyWKAg",
+      "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/10/lord-of-the-rings-trilogy-header.jpg"
+    ]
   }
 ]

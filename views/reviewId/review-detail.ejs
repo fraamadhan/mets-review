@@ -1,8 +1,9 @@
-<% const genres = review.data.genres %>
+<!--Header-->
+<% const genres = review.data.genres %> <% const images = review.data.images %> <% let likes = review.data.likes %>
 <header class="container">
   <div class="row align-items-center">
     <div class="col-10 mt-4">
-      <h4 class="d-block"><%= review.data.title %></h4>
+      <h1 class="d-block"><%= review.data.title %></h1>
       <% for (let index = 0; index < genres.length; index++) { %>
       <span class="badge bg-primary mx-1 my-1"><%= genres[index] %></span>
       <% } %>
@@ -20,3 +21,162 @@
     </div>
   </div>
 </header>
+
+<!--Content-->
+<main>
+  <!--Review Image-->
+  <section class="container mt-3 mt-lg-4">
+    <div class="row">
+      <!-- Left Larger Image -->
+      <% for( let index = 0; index < images.length; index++ ) { %> <% if (images[index]) { %>
+      <div class="col-md-6 d-flex flex-column">
+        <a href="<%= images[index] %>">
+          <img src="<%= images[index] %>" alt="<%= review.data.title %> image" class="img-fluid" width="600" height="400" />
+        </a>
+        <% index++ %>
+      </div>
+      <% if (images[index]) { %>
+      <!-- Right Side with Two Smaller Images -->
+      <div class="col-md-6 d-flex flex-column">
+        <a href="<%= images[index] %>">
+          <img src="<%= images[index] %>" alt="<%= review.data.title %> image" class="img-fluid mb-2 w-50" width="300" height="200" />
+        </a>
+        <% index++ %> <% if (images[index]) { %>
+        <a href="<%= images[index] %>">
+          <img src="<%= images[index] %>" alt="<%= review.data.title %> image" class="img-fluid mt-2 w-50" width="300" height="200" />
+        </a>
+        <% } %>
+      </div>
+      <% } %> <% } %> <% } %>
+    </div>
+  </section>
+
+  <!--Review Content-->
+  <section class="container mt-3 mb-3 mb-lg-4 mt-lg-4">
+    <div class="row g-2">
+      <div class="col-sm-9 col-md-9 d-flex">
+        <div class="card w-100 d-flex flex-column">
+          <div class="card-header"><h2><%= review.data.title %></h2></div>
+          <div class="card-body flex-fill d-flex flex-column">
+            <blockquote class="blockquote mb-0">
+              <p><%= review.data.review %></p>
+              <footer class="blockquote-footer">
+                <%= review.data.name %> in <cite title="Source Title"><a href="http://localhost:3000/detail-profile/<%= review.data.name %>"><%= review.data.name %></a></cite>
+              </footer>
+            </blockquote>
+            <div class="d-flex align-items-center">
+              <p class="mb-0"><i class="bi bi-heart fs-4 me-2" onclick="likeReview(event)"></i></p>
+              <p class="fs-7 mb-0 me-3" id="likes-count"><%= review.data.likes %></p>
+              <p class="mb-0"><i class="bi bi-chat fs-4 me-2"></i></p>
+              <p class="fs-7 mb-0" id="comments-count"><%= review.data.comments %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Comment Section-->
+  <section class="container mt-3 mb-3 mb-lg-4 mt-lg-4">
+    <div class="row d-flex justify-content-start">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-0 border" style="background-color: #f0f2f5">
+          <div class="card-body p-4">
+            <div data-mdb-input-init class="form-outline mb-4 d-flex align-items-center">
+              <textarea type="text" id="addANote" class="form-control" rows="7" placeholder="Type your comment..."></textarea>
+              <button class="ms-2"><i class="bi bi-plus-circle-fill"></i></button>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-body">
+                <p>Give your thought, and add it!</p>
+
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-row align-items-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="25" height="25" />
+                    <p class="small mb-0 ms-2">Martha</p>
+                  </div>
+                  <div class="d-flex flex-row align-items-center">
+                    <p class="small text-muted mb-0">Upvote?</p>
+                    <i class="far fa-thumbs-up mx-2 fa-xs text-body" style="margin-top: -0.16rem"></i>
+                    <p class="small text-muted mb-0">3</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-body">
+                <p>Type your note, and hit enter to add it</p>
+
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-row align-items-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="25" height="25" />
+                    <p class="small mb-0 ms-2">Johny</p>
+                  </div>
+                  <div class="d-flex flex-row align-items-center">
+                    <p class="small text-muted mb-0">Upvote?</p>
+                    <i class="far fa-thumbs-up mx-2 fa-xs text-body" style="margin-top: -0.16rem"></i>
+                    <p class="small text-muted mb-0">4</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-body">
+                <p>Type your note, and hit enter to add it</p>
+
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-row align-items-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar" width="25" height="25" />
+                    <p class="small mb-0 ms-2">Mary Kate</p>
+                  </div>
+                  <div class="d-flex flex-row align-items-center text-body">
+                    <p class="small mb-0">Upvoted</p>
+                    <i class="fas fa-thumbs-up mx-2 fa-xs" style="margin-top: -0.16rem"></i>
+                    <p class="small mb-0">2</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <p>Type your note, and hit enter to add it</p>
+
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-row align-items-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="25" height="25" />
+                    <p class="small mb-0 ms-2">Johny</p>
+                  </div>
+                  <div class="d-flex flex-row align-items-center">
+                    <p class="small text-muted mb-0">Upvote?</p>
+                    <i class="far fa-thumbs-up ms-2 fa-xs text-body" style="margin-top: -0.16rem"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  function likeReview(event) {
+    let like = event.target;
+    let likesCount = document.getElementById("likes-count");
+    let likes = parseInt(likesCount.innerText);
+    if (like.classList.contains("bi-heart")) {
+      like.classList.remove("bi-heart");
+      like.classList.add("bi-heart-fill");
+      likesCount.innerText = likes + 1;
+    } else {
+      like.classList.remove("bi-heart-fill");
+      like.classList.add("bi-heart");
+      likesCount.innerText = likes - 1;
+    }
+  }
+</script>
