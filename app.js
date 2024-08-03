@@ -2,9 +2,11 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const { loadReview, loadProfile } = require("./utils/review");
 const { getBestOfTheWeekReview, getReviewById } = require("./utils/utils");
+const updateLike = require("./utils/update-like");
 const app = express();
 const port = 3000;
 
+app.use(express.json());
 //set the view engine using ejs
 app.set("view engine", "ejs");
 //Built-in middleware
@@ -29,11 +31,30 @@ app.get("/review/:reviewId", (req, res, next) => {
   if (review.status !== 200) {
     return next();
   }
+  console.log(review.data.id);
 
   res.render("reviewId/review-detail", { layout: "partials/main-layout", review, title: `${review.data.title}` });
 });
 app.get("/profile", (req, res) => {
   res.render("profile", { layout: "partials/main-layout", title: "Profile Page" });
+});
+
+app.put("/update-like", async (req, res) => {
+  const { likesCount, reviewID, isLiked } = req.body;
+
+  if (isNaN(likesCount)) {
+    return res.status(400).json({ status: 200, message: "Like must be a number" });
+  }
+
+  try {
+    const result = await updateLike(likesCount, reviewID, isLiked);
+    console.log(result);
+
+    res.status(result.status).json({ status: 200, message: result.message, data: result.data });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ status: 200, message: "Internal server error", data: error });
+  }
 });
 
 app.use((req, res) => {

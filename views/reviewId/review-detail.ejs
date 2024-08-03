@@ -1,5 +1,5 @@
 <!--Header-->
-<% const genres = review.data.genres %> <% const images = review.data.images %> <% let likes = review.data.likes %>
+<% const genres = review.data.genres %> <% const images = review.data.images %> <% let likes = review.data.likes %> <% const id = review.data.id%> <% const isLiked = review.data.isLiked %>
 <header class="container">
   <div class="row align-items-center">
     <div class="col-10 mt-4">
@@ -65,7 +65,9 @@
               </footer>
             </blockquote>
             <div class="d-flex align-items-center">
-              <p class="mb-0"><i class="bi bi-heart fs-4 me-2" onclick="likeReview(event)"></i></p>
+              <p class="mb-0">
+                <i class="bi <%= isLiked ? 'bi-heart-fill' : 'bi-heart' %> fs-4 me-2" onclick="likeReview(event)" data-review='{"id": "<%= id %>", "isLiked": <%= isLiked %>}'></i>
+              </p>
               <p class="fs-7 mb-0 me-3" id="likes-count"><%= review.data.likes %></p>
               <p class="mb-0"><i class="bi bi-chat fs-4 me-2"></i></p>
               <p class="fs-7 mb-0" id="comments-count"><%= review.data.comments %></p>
@@ -165,18 +167,70 @@
 </main>
 
 <script>
-  function likeReview(event) {
+  async function likeReview(event) {
     let like = event.target;
+
+    const attrData = JSON.parse(like.getAttribute("data-review"));
+
+    const reviewID = attrData.id;
+    let isLiked = attrData.isLiked;
+
     let likesCount = document.getElementById("likes-count");
     let likes = parseInt(likesCount.innerText);
-    if (like.classList.contains("bi-heart")) {
+
+    console.log("Is like?", isLiked);
+
+    isLiked = !isLiked;
+
+    if (isLiked) {
       like.classList.remove("bi-heart");
       like.classList.add("bi-heart-fill");
       likesCount.innerText = likes + 1;
+      console.log("Like the review!");
     } else {
       like.classList.remove("bi-heart-fill");
       like.classList.add("bi-heart");
       likesCount.innerText = likes - 1;
+      console.log("Not like the review!");
+    }
+
+    const result = await updateLike(parseInt(likesCount.innerText), reviewID, isLiked);
+
+    console.log(result);
+
+    if (result.status !== 200) {
+      console.log("Server error:", result.message);
+      if (isLiked) {
+        like.classList.remove("bi-heart-fill");
+        like.classList.add("bi-heart");
+        likesCount.innerText = likes;
+      } else {
+        like.classList.remove("bi-heart");
+        like.classList.add("bi-heart-fill");
+        likesCount.innerText = likes;
+      }
+    }
+
+    like.setAttribute("data-review", JSON.stringify({ id: reviewID, isLiked: isLiked }));
+  }
+
+  async function updateLike(likesCount, reviewID, isLiked) {
+    try {
+      const response = await fetch("http://localhost:3000/update-like", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ likesCount, reviewID, isLiked }),
+      });
+
+      const result = await response.json();
+      if (result.status !== 200) {
+        console.log(result.message);
+      }
+      return result;
+    } catch (error) {
+      console.log("error", error);
     }
   }
 </script>
