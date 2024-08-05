@@ -1,6 +1,9 @@
 <hr class="border border-primary border-1 opacity-75 mt-4" />
 <% const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %> <% const d = new Date()%> <% const day = weekday[d.getDay()]; %>
-<p class="bg-info p-3 mb-2 rounded w-10 position-fixed end-0 bottom-0 text-end me-3 z-3"><%= day %>, <span id="clock"></span></p>
+<div class="position-fixed end-0 bottom-0 d-flex align-items-end me-3 z-3">
+  <p class="bg-info p-3 mb-2 rounded w-10 text-end me-3"><%= day %>, <span id="clock"></span></p>
+  <a href="/add-review" class="text-decoration-none text-black"><p class="bg-warning p-3 mb-2 rounded w-10" style="cursor: pointer">Create new review</p></a>
+</div>
 <h1 class="ms-3">Hello, <%= name %></h1>
 <p class="ms-3">Welcome to Review Garden!</p>
 <p class="ms-3">Here you can share your review about movie, novel, game, and etc! Also you are pleased to read others review and sharing your thoughts about their review!</p>

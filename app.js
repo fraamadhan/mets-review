@@ -39,6 +39,8 @@ app.get("/profile", (req, res) => {
   res.render("profile", { layout: "partials/main-layout", title: "Profile Page" });
 });
 
+app.post("/review", (req, res) => {});
+
 app.put("/update-like", async (req, res) => {
   const { likesCount, reviewID, isLiked } = req.body;
 
